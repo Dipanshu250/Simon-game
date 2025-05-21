@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Integer in Paragraph</title>
+</head>
+<body>
+
+    <!-- Text box for input -->
+    <input type="number" id="inputNumber" placeholder="Enter an integer">
+    
+    <!-- Button to trigger displaying the value -->
+    <button onclick="displayValue()">Display Value</button>
+    
+    <!-- Paragraph to display the integer -->
+    <p id="outputParagraph"></p>
+
+    <script>
+        // Function to display the integer value from the input box in the paragraph
+        function displayValue() {
+            // Get the value from the input box
+            const inputValue = document.getElementById('inputNumber').value;
+
+            // Display the value in the paragraph
+            document.getElementById('outputParagraph').textContent = "The entered value is: " + inputValue;
+        }
+    </script>
+
+</body>
+</html>

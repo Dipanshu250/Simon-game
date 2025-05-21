@@ -1,0 +1,13 @@
+p +h3{
+    text-decoration: underline;
+}
+.upvote + button{
+    background-color: cornflowerblue;
+    color: blue;
+}
+div> input {
+    background-color: darksalmon; 
+}
+#myID p{ 
+    background-color:palevioletred; 
+}

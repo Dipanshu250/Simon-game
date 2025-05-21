@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><b>Registration</b></title></head>
+    </center>
+    <h1><center>Registration</center></h1>
+</head>
+<body bgcolor="orange">
+    <center>
+        <form>
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr><br>   
+            <tr>
+                <td><label for="id">ID</label></td>
+                <td><input type="text" id="id" name="id"></td>
+            </tr><br>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr><br>
+            <tr>
+                <td><label for="email">E-Mail ID</label></td>
+                <td><input type="text" id="email" name="email"></td>
+            </tr><br>
+            <tr>
+                <td><label for="age">Age</label></td>
+                <td><input type="text" id="age" name="age"></td>
+            </tr><br><br>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </td>
+            </tr><br><br>
+            <tr>
+                <td><label for="address">College Address:</label></td>
+                <td><textarea id="address" name="address" rows="4" cols="30"></textarea></td>
+            </tr><br><br>
+            <tr>
+                <td><label for="branch">Branch:</label></td>
+                <td>
+                    <select id="branch" name="branch">
+                        <option value="cse">Computer Science</option>
+                        <option value="ece">Electronics</option>
+                        <option value="eee">Electrical</option>
+                        <option value="me">Mechanical</option>
+                    </select>
+                </td>
+            </tr><br><br>
+            <tr>
+                <td>Technical Skills:</td>
+                <td>
+                    <input type="checkbox" id="c" name="skills" value="c">
+                    <label for="c">C</label>
+                    <input type="checkbox" id="java" name="skills" value="java">
+                    <label for="java">Java</label>
+                    <input type="checkbox" id="python" name="skills" value="python">
+                    <label for="python">Python</label>
+                    <input type="checkbox" id="jsp" name="skills" value="jsp">
+                    <label for="jsp">JSP</label>
+                </td>
+            </tr><br><br>
+            <tr>
+                <td><b><label for="resume">Resume Upload:</label></b></td>
+                <td><input type="file" id="resume" name="resume"></td>
+            </tr><br><br>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr><br>
+        </form>
+    </center>
+</body>
+</html>

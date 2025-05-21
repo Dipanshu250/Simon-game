@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        input, select {
+            padding: 8px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Employee Information Form</h2>
+
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="employeeId">Employee ID:</label>
+        <input type="text" id="employeeId" placeholder="Enter your Employee ID">
+
+        <label>Gender:</label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="Female">
+
+        <label for="department">Department:</label>
+        <select id="department">
+            <option value="HR">HR</option>
+            <option value="Finance">Finance</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+
+        <label for="basicSalary">Basic Salary:</label>
+        <input type="number" id="basicSalary" placeholder="Enter Basic Salary">
+
+        <label for="hra">HRA:</label>
+        <input type="number" id="hra" placeholder="Enter HRA">
+
+        <label for="allowances">Allowances:</label>
+        <input type="number" id="allowances" placeholder="Enter Allowances">
+
+       
+        <button onclick="showDetails()">Show Details</button>
+        <button onclick="showGrossSalary()">Show Gross Salary</button>
+        <button onclick="showIncomeCategory()">Show Income Category</button>
+
+        
+        <div class="output">
+            <p id="employeeDetails"></p>
+            <p id="grossSalary"></p>
+            <p id="incomeCategory"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to display the entered employee details
+        function showDetails() {
+            const name = document.getElementById("name").value;
+            const employeeId = document.getElementById("employeeId").value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const department = document.getElementById("department").value;
+
+            const details = `Name: ${name}<br>Employee ID: ${employeeId}<br>Gender: ${gender || 'Not selected'}<br>Department: ${department}`;
+            document.getElementById("employeeDetails").innerHTML = details;
+        }
+
+        // Function to calculate and display the gross salary
+        function showGrossSalary() {
+            const basicSalary = parseFloat(document.getElementById("basicSalary").value);
+            const hra = parseFloat(document.getElementById("hra").value);
+            const allowances = parseFloat(document.getElementById("allowances").value);
+
+            if (!isNaN(basicSalary) && !isNaN(hra) && !isNaN(allowances)) {
+                const grossSalary = basicSalary + hra + allowances;
+                document.getElementById("grossSalary").innerHTML = `Gross Salary: ₹${grossSalary.toFixed(2)}`;
+            } else {
+                document.getElementById("grossSalary").innerHTML = "Please enter valid salary, HRA, and allowances.";
+            }
+        }
+
+        // Function to determine and display the income category
+        function showIncomeCategory() {
+            const basicSalary = parseFloat(document.getElementById("basicSalary").value);
+            const hra = parseFloat(document.getElementById("hra").value);
+            const allowances = parseFloat(document.getElementById("allowances").value);
+
+            if (!isNaN(basicSalary) && !isNaN(hra) && !isNaN(allowances)) {
+                const grossSalary = basicSalary + hra + allowances;
+                let category = '';
+
+                switch (true) {
+                    case grossSalary > 300000:
+                        category = 'High Income Group';
+                        break;
+                    case grossSalary >= 100000 && grossSalary <= 300000:
+                        category = 'Medium Income Group';
+                        break;
+                    case grossSalary < 100000:
+                        category = 'Low Income Group';
+                        break;
+                }
+
+                document.getElementById("incomeCategory").innerHTML = `Income Category: ${category}`;
+            } else {
+                document.getElementById("incomeCategory").innerHTML = "Please calculate gross salary first.";
+            }
+        }
+    </script>
+
+</body>
+</html>
